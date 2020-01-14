@@ -13,7 +13,7 @@ def get_time_running():
 class LogHandler(StreamHandler):
     def __init__(self):
         StreamHandler.__init__(self)
-        formatter = Formatter('%(asctime)s.%(msecs)03d:%(levelname)-8s%(module)-18s%(lineno)-4d: %(message)s',)
+        formatter = Formatter('%(asctime)s.%(msecs)03d:%(levelname)-8s%(lineno)-4d: %(message)s',)
         formatter.datefmt = '%H:%M:%S'
         self.setFormatter(formatter)
         self.setLevel(DEBUG)
