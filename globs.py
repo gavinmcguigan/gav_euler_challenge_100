@@ -52,4 +52,21 @@ def is_prime(num_to_check: int):
 def show_answer(answer):
     EULER_LOGGER.info(f"Answer -> '{answer}' in {get_time_running():0.4f} secs.")
 
+
 # Generators ---------------------------------------------------------------------------------------------------------
+def gen_get_divisors(seed):
+    """ Yields in order of largest -> smallest divisors of number passed in. """
+    already_yielded = []
+    yield_despues = []
+    for n in range(1, int(sqrt(seed))):
+        if not seed % n:
+            result = seed // n
+            if result not in already_yielded:
+                yield_despues.append(n)
+
+            if result != n:
+                yield result
+                already_yielded.append(result)
+
+    for n in reversed(yield_despues):
+        yield n
