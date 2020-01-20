@@ -14,6 +14,11 @@ from globs import *
 
 
 def search_through_prime_sums(alist: list):
+    """
+    Work backwards from prime sums in first loop and in second loop, we subtract from first element
+    to the number in first loop. If the result of the subtraction is a prime, break from the loop,
+    we have the answer.  
+    """
     a, c = None, None
 
     for i in alist[-1: 0: -1]:
@@ -31,6 +36,7 @@ def search_through_prime_sums(alist: list):
 
 
 def main():
+    """ Generate a list of prime sums. """
     prime_sums = []
     s = 0
     for g in gen_primes(1, 5000):
